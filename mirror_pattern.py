@@ -1,12 +1,13 @@
 """
 Author: Krish Rogan
 Date: 13-07-2023
-Dependency: n value should be divisible by 9 to generate a good visual pattern
+Dependency: n value should be 2 to 9 to generate a good visual pattern
 """
 from math import ceil
 
 global x
 global concrete
+global n
 
 
 def convert_to_int(pat):
@@ -21,9 +22,11 @@ def set_(n_):
     """
     :param n_: number of rows
     """
-    global x, concrete
-    x = ceil(n_ / 2)
-    concrete = ''.join(map(str, range(1, n)))
+
+    global x, concrete, n
+    n = n_ * 2
+    x = ceil(n / 2)
+    concrete = ''.join(map(str, range(1, x+1)))
 
 
 def mirror(p1: (list, tuple)):
@@ -79,7 +82,7 @@ def make_pattern(n_):
 
 
 if __name__ == '__main__':
-    n = 9
+    n = 5
     pattern = make_pattern(n)
     for p in pattern:
         print(p)
